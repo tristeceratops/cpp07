@@ -15,8 +15,9 @@ template <typename T> class Array
 		~Array();
 
 		Array &operator=(const Array &rhs);
-
-		int size() const;
+		T &operator[](int index);
+		const T &operator[](int index) const;
+		int getSize() const;
 
 		class ArrayOutOfBonds : public std::exception
 		{
