@@ -1,6 +1,6 @@
 NAME := array
 FLAGS := -Wall -Wextra -Werror -std=c++98 -g
-FILES := main.cpp Array.tpp
+FILES := main.cpp
 OBJ := $(FILES:.cpp=.o)
 
 all: $(NAME)

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <exception>
 #include "Array.hpp" // Include your template class header
+#include "Array.tpp" // Include your template class header
 
 int main()
 {
@@ -41,15 +42,37 @@ int main()
 
         // Test 6: Out of bounds access
         std::cout << "Test 6: Access element out of bounds." << std::endl;
-        std::cout << "arr2[10] = " << arr2[10] << std::endl; // Should throw an exception
-    }
-    catch (const Array<int>::ArrayOutOfBonds &e)
-    {
-        std::cerr << "Caught exception: " << e.what() << std::endl;
+        try
+        {
+            std::cout << "arr2[10] = " << arr2[10] << std::endl; // Should throw an exception
+        }
+        catch (const std::exception &e)
+        {
+            std::cerr << "Exception caught: " << e.what() << std::endl;
+        }
+
+        // Test 7: Array with double type
+        Array<double> arrDouble(3);
+        std::cout << "Test 7: Array of double created." << std::endl;
+        for (int i = 0; i < arrDouble.getSize(); ++i)
+        {
+            arrDouble[i] = i * 0.5;
+            std::cout << "arrDouble[" << i << "] = " << arrDouble[i] << std::endl;
+        }
+
+        // Test 8: Array with std::string type
+        Array<std::string> arrString(2);
+        std::cout << "Test 8: Array of std::string created." << std::endl;
+        arrString[0] = "Hello";
+        arrString[1] = "World";
+        for (int i = 0; i < arrString.getSize(); ++i)
+        {
+            std::cout << "arrString[" << i << "] = " << arrString[i] << std::endl;
+        }
     }
     catch (const std::exception &e)
     {
-        std::cerr << "Caught general exception: " << e.what() << std::endl;
+        std::cerr << "Exception caught: " << e.what() << std::endl;
     }
 
     return 0;

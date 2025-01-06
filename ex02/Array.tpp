@@ -60,7 +60,7 @@ const T &Array<T>::operator[](int index) const
 template <typename T>
 int Array<T>::getSize() const
 {
-    return this.size;
+    return size;
 }
 
 template <typename T>
