@@ -15,7 +15,7 @@ int main()
         unsigned int n = 5;
         Array<int> arr2(n);
         std::cout << "Test 2: Array of size " << n << " created." << std::endl;
-        for (int i = 0; i < arr2.getSize(); ++i)
+        for (unsigned int i = 0; i < arr2.getSize(); ++i)
         {
             std::cout << "arr2[" << i << "] = " << arr2[i] << std::endl;
         }
@@ -35,7 +35,7 @@ int main()
 
         // Test 5: Access elements with subscript operator
         std::cout << "Test 5: Access elements in arr2 using subscript operator." << std::endl;
-        for (int i = 0; i < arr2.getSize(); ++i)
+        for (unsigned int i = 0; i < arr2.getSize(); ++i)
         {
             std::cout << "arr2[" << i << "] = " << arr2[i] << std::endl;
         }
@@ -54,7 +54,7 @@ int main()
         // Test 7: Array with double type
         Array<double> arrDouble(3);
         std::cout << "Test 7: Array of double created." << std::endl;
-        for (int i = 0; i < arrDouble.getSize(); ++i)
+        for (unsigned int i = 0; i < arrDouble.getSize(); ++i)
         {
             arrDouble[i] = i * 0.5;
             std::cout << "arrDouble[" << i << "] = " << arrDouble[i] << std::endl;
@@ -65,10 +65,12 @@ int main()
         std::cout << "Test 8: Array of std::string created." << std::endl;
         arrString[0] = "Hello";
         arrString[1] = "World";
-        for (int i = 0; i < arrString.getSize(); ++i)
+        for (unsigned int i = 0; i < arrString.getSize(); ++i)
         {
             std::cout << "arrString[" << i << "] = " << arrString[i] << std::endl;
         }
+        std::cout << "Test 9: Array of negative size created." << std::endl;
+		Array<int> negativeTest(-4);
     }
     catch (const std::exception &e)
     {
