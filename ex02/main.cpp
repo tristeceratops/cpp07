@@ -1,7 +1,7 @@
 #include <iostream>
 #include <exception>
-#include "Array.hpp" // Include your template class header
-#include "Array.tpp" // Include your template class header
+#include "Array.hpp"
+#include "Array.tpp"
 
 int main()
 {
