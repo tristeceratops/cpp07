@@ -69,6 +69,7 @@ int main()
         {
             std::cout << "arrString[" << i << "] = " << arrString[i] << std::endl;
         }
+        // Test 9: Array with negative size
         std::cout << "Test 9: Array of negative size created." << std::endl;
 		Array<int> negativeTest(-4);
     }
