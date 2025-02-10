@@ -4,12 +4,21 @@ template <typename T>
 Array<T>::Array() : ptr(NULL), size(0) {}
 
 template <typename T>
-Array<T>::Array(int n) : ptr(NULL), size(0)
+Array<T>::Array(unsigned int n) : ptr(NULL), size(0)
 {
-	if (n < 0)
-		throw NegativeSize();
-	size = static_cast<unsigned int>(n);
-	ptr = new T[size]();
+	if (n > std::numeric_limits<unsigned int>::max() / sizeof(T))
+	{
+		throw std::length_error("Requested array size is too large");
+	}
+	size = n;
+	try
+	{
+		ptr = new T[size]();
+	}
+	catch (std::bad_alloc &e)
+	{
+		throw std::bad_alloc();
+	}
 }
 
 template <typename T>

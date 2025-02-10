@@ -1,6 +1,7 @@
 #pragma once
 
 #include <exception>
+#include <limits>
 
 template <typename T> class Array
 {
@@ -9,7 +10,7 @@ template <typename T> class Array
 		unsigned int size;
 	public:
 		Array();
-		Array(int n);
+		Array(unsigned int n);
 		Array(const Array &copy);
 
 		~Array();
